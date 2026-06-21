@@ -1,0 +1,40 @@
+# 📅 Day 2 — First Quantum Circuit
+
+## ✅ What I Did
+- Installed Python and Qiskit
+- Created my first quantum circuit
+- Used quantum simulator (Qiskit Aer)
+- Observed superposition behavior
+
+---
+
+## 🧠 Concepts Learned
+
+### 🔹 Qubit
+A qubit is a quantum bit that can exist in multiple states at the same time.
+
+### 🔹 Superposition
+By applying the Hadamard (H) gate, a qubit can be in both 0 and 1 states simultaneously.
+
+### 🔹 Simulation
+Used Qiskit Aer simulator to run quantum circuits on my computer.
+
+---
+
+## 💻 Code
+
+```python
+from qiskit import QuantumCircuit
+from qiskit_aer import Aer
+
+qc = QuantumCircuit(1, 1)
+qc.h(0)
+qc.measure(0, 0)
+
+simulator = Aer.get_backend('aer_simulator')
+job = simulator.run(qc, shots=1000)
+
+result = job.result()
+counts = result.get_counts()
+
+print(counts)
